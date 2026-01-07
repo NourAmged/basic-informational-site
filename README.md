@@ -16,9 +16,9 @@ pages/
 ```
 
 ### Files:
-- **index.js**: Placeholder for potential JavaScript functionality.
+- **index.js**: main simple server
 - **pages/**: Contains the HTML pages for the site.
-  - **404.html**: Custom 404 error page.
-  - **about.html**: Page with information about the site or author.
-  - **contact-me.html**: Contact form or details.
+  - **404.html**: 404 error page.
+  - **about.html**: About Me page.
+  - **contact-me.html**: Contact Me page.
   - **index.html**: The homepage of the site.
