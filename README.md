@@ -22,3 +22,4 @@ pages/
   - **about.html**: About Me page.
   - **contact-me.html**: Contact Me page.
   - **index.html**: The homepage of the site.
+
