@@ -1,41 +1,29 @@
-const http = require('http');
-const fs = require('fs');
+const express = require("express");
+const path = require("path");
+
+const app = express();
 
 const PORT = 3000;
 
-const server = http.createServer((req, res) => {
-    res.setHeader('Content-Type', 'text/html');
+app.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname, "pages", "index.html"));
 
-    let path = './pages/';
-
-    switch (req.url) {
-
-        case '/':
-            path += 'index.html';
-            break;
-
-        case '/about':
-            path += 'about.html';
-            break;
-
-        case '/contact-me':
-            path += 'contact-me.html';
-            break;
-
-        default:
-            path += '404.html';
-            break;
-    }
-
-    fs.readFile(path, (err, data) => {
-        if (err) {
-            console.log(err);
-            res.end();
-        } else
-            res.end(data);
-    });
 });
 
-server.listen(PORT, "localhost", () => {
+app.get("/about", (req, res) => {
+    res.sendFile(path.join(__dirname, "pages", "about.html"));
+
+});
+
+app.get("/contact-me", (req, res) => {
+    res.sendFile(path.join(__dirname, "pages", "contact-me.html"));
+
+});
+
+app.use((req, res) => {
+    res.sendFile(path.join(__dirname, "pages", "404.html"));
+});
+
+app.listen(PORT, () => {
     console.log(`server is running on localhost:${PORT}`);
 });
